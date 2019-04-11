@@ -7,7 +7,7 @@ int main()
 
 	while (foundKgV == false) {
 		kgV += 20;
-		//std::cout << kgV << std::endl;
+		//std::cout << kgV << std::endl;	//<-- auskommentieren für Spaß
 
 		if (kgV % 19 == 0) {
 			if (kgV % 18 == 0) {
@@ -18,7 +18,7 @@ int main()
 								if (kgV % 13 == 0) {
 									if (kgV % 12 == 0) {
 										if (kgV % 11 == 0) {
-											foundKgV = true;
+											foundKgV = true;	//Das hier hätter auch eine for-Schleife sein können
 										}
 									}
 								}

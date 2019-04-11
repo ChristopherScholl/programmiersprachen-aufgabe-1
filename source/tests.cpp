@@ -61,9 +61,9 @@ double cylinderArea(double height, double radius) {
 }
 
 TEST_CASE("describe_cylinder", "[cylinder]") {
-	//REQUIRE(gcd(2, 4) == 2);
-	//REQUIRE(gcd(9, 6) == 3);
-	//REQUIRE(gcd(3, 7) == 1);
+	//REQUIRE(cylinder(, ) == );
+	//REQUIRE(cylinder(, ) == );
+	//REQUIRE(cylinder(, ) == );
 }
 
 //1.8
