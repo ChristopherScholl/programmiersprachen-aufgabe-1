@@ -66,6 +66,29 @@ TEST_CASE("describe_cylinder", "[cylinder]") {
 	//REQUIRE(cylinder(, ) == );
 }
 
+//1.13
+int factorial(int zahl) {
+	if (zahl < 1) {
+		return -1; //nicht erlaubt
+	}
+	else {
+		int product = 1;
+
+		for (int i = 1; i <= zahl; i++) {
+			product *= i;
+		}
+
+		return product;
+	}
+}
+
+TEST_CASE("describe_factorial", "[factorial]") {
+	REQUIRE(factorial(0) == -1); //-1 = Fehler
+	REQUIRE(factorial(1) == 1);
+	REQUIRE(factorial(3) == 6);
+	REQUIRE(factorial(5) == 120);
+}
+
 //1.8
 int gcd(int a, int b) {
 	return 1;
