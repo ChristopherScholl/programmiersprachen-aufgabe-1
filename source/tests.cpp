@@ -89,6 +89,35 @@ TEST_CASE("describe_factorial", "[factorial]") {
 	REQUIRE(factorial(5) == 120);
 }
 
+//1.14
+bool is_prime(int zahl) {
+	bool p = true;
+
+	if (zahl <= 1) {
+		return false;
+	}
+	else {
+		for (int i = 2; i <= zahl / 2; i++) {
+			if (zahl % i >= 1) {
+				p = false;
+				return p;
+			}
+		}
+		if (p == true) {
+			return p;
+		}
+	}
+}
+
+TEST_CASE("describe_is_prime", "[is_prime]") {
+	REQUIRE(is_prime(0) == false);
+	REQUIRE(is_prime(1) == false);
+	REQUIRE(is_prime(2) == true);
+	REQUIRE(is_prime(3) == true);
+	REQUIRE(is_prime(4) == false);
+	REQUIRE(is_prime(5) == true);
+}
+
 //1.8
 int gcd(int a, int b) {
 	return 1;
