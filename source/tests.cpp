@@ -2,6 +2,17 @@
 #include "catch.hpp"
 #include <cmath>
 
+//1.8
+int gcd(int a, int b) {
+	return 1;
+}
+
+TEST_CASE("describe_gcd", "[gcd]") {
+	REQUIRE(gcd(2, 4) == 2);
+	REQUIRE(gcd(9, 6) == 3);
+	REQUIRE(gcd(3, 7) == 1);
+}
+
 //1.9
 int checksum(int zahl) {
 	int sum = 0;
@@ -49,21 +60,34 @@ TEST_CASE("describe_fract", "[fract]") {
 
 //1.12
 double cylinderVolume(double height, double radius) {
-	double circleArea = 3.1415926 * radius * radius;
-	return circleArea * height;
+	if (height < 0 || radius < 0) {
+		return -1;
+	}
+	else {
+		double circleArea = 3.1415926 * radius * radius;
+		return circleArea * height;
+	}
 }
 
 double cylinderArea(double height, double radius) {
-	double circleLength = 2 * 3.1415926 * radius;
-	double circleArea = 3.1415926 * radius * radius;
-	double side = circleLength * height;
-	return side + (circleArea * 2);
+	if (height < 0 || radius < 0) {
+		return -1;
+	}
+	else {
+		double circleLength = 2 * 3.1415926 * radius;
+		double circleArea = 3.1415926 * radius * radius;
+		double side = circleLength * height;
+		return side + (circleArea * 2);
+	}
 }
 
 TEST_CASE("describe_cylinder", "[cylinder]") {
-	//REQUIRE(cylinder(, ) == );
-	//REQUIRE(cylinder(, ) == );
-	//REQUIRE(cylinder(, ) == );
+	REQUIRE(cylinderVolume(-1, 1) == -1);
+	REQUIRE(cylinderVolume(1, 1) == Approx(3.1415926));
+	REQUIRE(cylinderVolume(12, 50) == Approx(94247.7796076));
+	REQUIRE(cylinderArea(-1, 1) == -1);
+	REQUIRE(cylinderArea(1, 1) == Approx(12.5663706));
+	REQUIRE(cylinderArea(3, 2) == Approx(62.8318530));
 }
 
 //1.13
@@ -97,15 +121,13 @@ bool is_prime(int zahl) {
 		return false;
 	}
 	else {
-		for (int i = 2; i <= zahl / 2; i++) {
-			if (zahl % i >= 1) {
+		for (int i = 2; i <= zahl / 2; ++i) {
+			if (zahl % i != 0) {
 				p = false;
-				return p;
+				break;
 			}
 		}
-		if (p == true) {
-			return p;
-		}
+		return p;
 	}
 }
 
@@ -116,17 +138,6 @@ TEST_CASE("describe_is_prime", "[is_prime]") {
 	REQUIRE(is_prime(3) == true);
 	REQUIRE(is_prime(4) == false);
 	REQUIRE(is_prime(5) == true);
-}
-
-//1.8
-int gcd(int a, int b) {
-	return 1;
-}
-
-TEST_CASE("describe_gcd", "[gcd]") {
-	//REQUIRE(gcd(2, 4) == 2);
-	//REQUIRE(gcd(9, 6) == 3);
-	REQUIRE(gcd(3, 7) == 1);
 }
 
 int main(int argc, char* argv[])
