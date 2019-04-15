@@ -118,17 +118,16 @@ bool is_prime(int zahl) {
 	bool p = true;
 
 	if (zahl <= 1) {
-		return false;
+		p = false;
 	}
 	else {
-		for (int i = 2; i <= zahl / 2; ++i) {
-			if (zahl % i != 0) {
+		for (int i = 2; i < zahl-1; ++i) {
+			if (zahl % i == 0) {
 				p = false;
-				break;
 			}
 		}
-		return p;
 	}
+	return p;
 }
 
 TEST_CASE("describe_is_prime", "[is_prime]") {
